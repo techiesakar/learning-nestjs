@@ -5,6 +5,7 @@ import { EmployeesModule } from './employees/employees.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { AppService } from './app.service';
 import { APP_GUARD } from '@nestjs/core';
+import { MyLoggerModule } from './my-logger/my-logger.module';
 
 @Controller()
 class AppController {
@@ -27,7 +28,8 @@ class AppController {
       name: 'long',
       ttl: 60000,
       limit: 100,
-    }])
+    }]),
+    MyLoggerModule
   ],
 
   controllers: [AppController],
